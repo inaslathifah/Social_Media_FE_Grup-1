@@ -1,11 +1,14 @@
 import Layout from "@/components/layout";
+import PostCard from "@/components/post-card";
+import amperaImage from "@/assets/amperaori.jpg";
+import CreatePost from "@/components/create-post";
 
 function App() {
   return (
     <Layout withUser bgBlue centerX>
-      <div className="w-1/2 p-4 rounded-xl border border-sky-300 shadow-md shadow-slate-300">
-        Hello world
-      </div>
+      <CreatePost />
+      <PostCard imgUrl={amperaImage} withOption />
+      <PostCard />
     </Layout>
   );
 }
