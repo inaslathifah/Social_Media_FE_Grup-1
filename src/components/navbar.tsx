@@ -12,7 +12,7 @@ export default function Navbar(props: Props) {
   return (
     <nav
       className={cn(
-        "w-full flex justify-center",
+        "w-full flex justify-center sticky top-0",
         bgBlue && "bg-sky-700 text-white"
       )}
     >
