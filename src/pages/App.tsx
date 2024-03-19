@@ -1,11 +1,12 @@
-import { Button } from "../components/ui/button";
+import Layout from "@/components/layout";
 
 function App() {
   return (
-    <div className="w-full h-dvh flex flex-col justify-center items-center bg-sky-700">
-      <p className="text-lg text-white">Hello World</p>
-      <Button>Click</Button>
-    </div>
+    <Layout withUser bgBlue centerX>
+      <div className="w-1/2 bg-sky-100 p-3 rounded-xl border border-sky-300 shadow-md shadow-slate-300">
+        Hello world
+      </div>
+    </Layout>
   );
 }
 
