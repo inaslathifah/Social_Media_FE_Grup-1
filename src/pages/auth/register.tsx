@@ -10,19 +10,20 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   return (
-    <Layout withUser bgBlue centerX centerY>
-      <Card className="w-1/3">
+    <Layout navBlue centerX centerY containerTranparant>
+      <Card className="w-full lg:w-2/3">
         <CardHeader className="text-center">
           <CardTitle className="text-4xl">Register</CardTitle>
           <CardDescription>
             Sudah punya akun?
-            <a href="#" className="text-sky-500 font-medium">
+            <Link to="/login" className="text-sky-500 font-medium">
               {" "}
               Login di sini
-            </a>
+            </Link>
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-3">

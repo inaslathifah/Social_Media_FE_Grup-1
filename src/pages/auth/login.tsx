@@ -12,21 +12,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <Layout withUser bgBlue centerX centerY>
-      <Card className="w-full md:w-2/3 lg:w-1/3">
+    <Layout navBlue centerX centerY containerTranparant>
+      <Card className="w-full lg:w-2/3">
         <CardHeader className="text-center">
           <CardTitle className="text-4xl">Login</CardTitle>
           <CardDescription>
             Belum punya akun?
-            <a href="#" className="text-sky-500 font-medium">
+            <Link to="/register" className="text-sky-500 font-medium">
               {" "}
               Daftar di sini
-            </a>
+            </Link>
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-3">

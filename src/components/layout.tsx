@@ -9,11 +9,13 @@ interface Props {
   centerX?: boolean;
   centerY?: boolean;
   withUser?: boolean;
-  bgBlue?: boolean;
+  navBlue?: boolean;
+  containerTranparant?: boolean;
 }
 
 export default function Layout(props: Props) {
-  const { children, centerX, centerY, withUser, bgBlue } = props;
+  const { children, centerX, centerY, withUser, navBlue, containerTranparant } =
+    props;
 
   return (
     <div
@@ -25,12 +27,13 @@ export default function Layout(props: Props) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Navbar withUser={withUser} bgBlue={bgBlue} />
+      <Navbar withUser={withUser} navBlue={navBlue} />
       <div
         className={cn(
           "container lg:w-1/2 md:w-2/3 w-full grow py-4 px-8 flex flex-col bg-white",
           centerX && "items-center",
-          centerY && "justify-center"
+          centerY && "justify-center",
+          containerTranparant && "bg-transparent"
         )}
       >
         {children}

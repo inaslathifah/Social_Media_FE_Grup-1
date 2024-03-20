@@ -5,7 +5,7 @@ import CreatePost from "@/components/create-post";
 
 function Home() {
   return (
-    <Layout withUser bgBlue centerX>
+    <Layout withUser navBlue centerX>
       <CreatePost />
       <PostCard imgUrl={amperaImage} withOption />
       <PostCard />
