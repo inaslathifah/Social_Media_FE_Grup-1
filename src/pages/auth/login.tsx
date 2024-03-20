@@ -11,8 +11,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useState } from "react";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <Layout withUser bgBlue centerX centerY>
       <Card className="w-1/3">
@@ -42,13 +45,19 @@ export default function Login() {
                 <Input
                   className="rounded-full focus-visible:ring-sky-700"
                   id="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                 />
               </div>
               <div className="flex flex-col space-y-2">
                 <div className="items-top flex space-x-2">
-                  <Checkbox id="show-password" />
+                  <Checkbox
+                    id="show-password"
+                    checked={showPassword}
+                    onCheckedChange={(checked: boolean) =>
+                      setShowPassword(checked)
+                    }
+                  />
                   <div className="grid gap-1.5 leading-none">
                     <label
                       htmlFor="show-password"
