@@ -28,7 +28,7 @@ export default function Layout(props: Props) {
       <Navbar withUser={withUser} bgBlue={bgBlue} />
       <div
         className={cn(
-          "container w-1/2 grow py-4 px-8 flex flex-col bg-white",
+          "container lg:w-1/2 md:w-2/3 w-full grow py-4 px-8 flex flex-col bg-white",
           centerX && "items-center",
           centerY && "justify-center"
         )}

@@ -3,7 +3,7 @@ import PostCard from "@/components/post-card";
 import amperaImage from "@/assets/amperaori.jpg";
 import CreatePost from "@/components/create-post";
 
-function App() {
+function Home() {
   return (
     <Layout withUser bgBlue centerX>
       <CreatePost />
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
