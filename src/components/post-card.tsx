@@ -19,10 +19,11 @@ import { Link } from "react-router-dom";
 interface Types {
   withOption?: boolean;
   imgUrl?: string;
+  withInputComment?: boolean;
 }
 
 export default function PostCard(props: Types) {
-  const { withOption, imgUrl } = props;
+  const { withOption, imgUrl, withInputComment } = props;
 
   return (
     <Card className="w-full p-2 text-sm rounded-xl bg-white border border-sky-300 shadow-md shadow-slate-300 mb-5">
@@ -83,15 +84,19 @@ export default function PostCard(props: Types) {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <div className="w-full flex ">
-          <Input
-            className="rounded-full border-slate-400 focus-visible:ring-sky-700 focus-visible:border-white"
-            placeholder="Add a comment"
-          />
-          <Button className="border-none bg-transparent hover:bg-transparent text-black">
-            Send
-          </Button>
-        </div>
+        {withInputComment ? (
+          <div className="w-full flex">
+            <Input
+              className="rounded-full border-slate-400 focus-visible:ring-sky-700 focus-visible:border-white"
+              placeholder="Add a comment"
+            />
+            <Button className="border-none bg-transparent hover:bg-transparent text-black">
+              Send
+            </Button>
+          </div>
+        ) : (
+          <></>
+        )}
       </CardContent>
     </Card>
   );

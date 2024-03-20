@@ -7,10 +7,21 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useToken } from "@/utils/contexts/token";
 import { Home, Settings, LogOut, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function LoginDropdown() {
+  const { changeToken } = useToken();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    changeToken();
+    toast("Logout successfully");
+    navigate("/login");
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -41,7 +52,10 @@ export default function LoginDropdown() {
           </DropdownMenuItem>
         </Link>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="focus:text-red-600">
+        <DropdownMenuItem
+          className="focus:text-red-600 cursor-pointer"
+          onClick={handleLogout}
+        >
           <LogOut className="w-5 text-slate-800" />
           <p className="ms-2">Logout</p>
         </DropdownMenuItem>

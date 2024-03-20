@@ -7,7 +7,7 @@ function Home() {
   return (
     <Layout withUser navBlue centerX>
       <CreatePost />
-      <PostCard imgUrl={amperaImage} withOption />
+      <PostCard imgUrl={amperaImage} withOption withInputComment />
       <PostCard />
     </Layout>
   );

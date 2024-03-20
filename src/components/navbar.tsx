@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import LoginDropdown from "./login-dropdown";
+import { useToken } from "@/utils/contexts/token";
+import NoLoginDropdown from "./no-login-dropdown";
 
 interface Props {
   withUser?: boolean;
@@ -9,6 +11,7 @@ interface Props {
 
 export default function Navbar(props: Props) {
   const { withUser, navBlue } = props;
+  const { token } = useToken();
 
   return (
     <nav
@@ -22,8 +25,7 @@ export default function Navbar(props: Props) {
           <h1 className="text-lg font-bold tracking-wide">App Name</h1>
         </Link>
         {withUser ? (
-          // <NoLoginDropdown />
-          <LoginDropdown />
+          <>{token ? <LoginDropdown /> : <NoLoginDropdown />}</>
         ) : (
           <></>
         )}
