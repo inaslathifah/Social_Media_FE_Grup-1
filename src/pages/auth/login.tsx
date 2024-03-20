@@ -18,7 +18,7 @@ export default function Login() {
 
   return (
     <Layout withUser bgBlue centerX centerY>
-      <Card className="w-1/3">
+      <Card className="w-full md:w-2/3 lg:w-1/3">
         <CardHeader className="text-center">
           <CardTitle className="text-4xl">Login</CardTitle>
           <CardDescription>
