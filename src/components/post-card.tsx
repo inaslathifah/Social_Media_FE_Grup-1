@@ -5,20 +5,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { MessageCircle, Ellipsis } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Dialog } from "@/components/ui/dialog";
 import { EditPost } from "./edit-post";
 import { DeletePost } from "./del-post";
 import { AlertDialog } from "@/components/ui/alert-dialog";
 
-
 interface Types {
   withOption?: boolean;
   imgUrl?: string;
+  withInputComment?: boolean;
 }
 
 export default function PostCard(props: Types) {
-  const { withOption, imgUrl } = props;
+  const { withOption, imgUrl, withInputComment } = props;
 
   return (
     <Card className="w-full p-2 text-sm rounded-xl bg-white border border-sky-300 shadow-md shadow-slate-300 mb-5">
@@ -72,9 +81,33 @@ export default function PostCard(props: Types) {
             explicabo, consequatur ad possimus accusantium dolore!
           </p>
         </div>
-        <div className="w-full">
-          <MessageCircle className="w-5 text-sky-700" />
+        <div className="w-full mb-2">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Link to="/post/">
+                  <MessageCircle className="w-5 text-sky-700" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Comments</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
+        {withInputComment ? (
+          <div className="w-full flex">
+            <Input
+              className="rounded-full border-slate-400 focus-visible:ring-sky-700 focus-visible:border-white"
+              placeholder="Add a comment"
+            />
+            <Button className="border-none bg-transparent hover:bg-transparent text-black">
+              Send
+            </Button>
+          </div>
+        ) : (
+          <></>
+        )}
       </CardContent>
     </Card>
   );
