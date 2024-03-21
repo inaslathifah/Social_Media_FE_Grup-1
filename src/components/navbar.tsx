@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function Navbar(props: Props) {
-  const { withUser, bgBlue } = props;
+  const { bgBlue } = props;
 
   return (
     <nav
@@ -18,14 +18,6 @@ export default function Navbar(props: Props) {
     >
       <div className="w-10/12 flex justify-between items-center py-4">
         <h1 className="text-lg font-bold tracking-wide">App Name</h1>
-        {withUser ? (
-          <Avatar className="border-1 border-white">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        ) : (
-          <></>
-        )}
       </div>
     </nav>
   );
