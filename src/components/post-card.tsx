@@ -15,6 +15,10 @@ import {
 } from "@/components/ui/tooltip";
 import { MessageCircle, Ellipsis } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Dialog } from "@/components/ui/dialog";
+import { EditPost } from "./edit-post";
+import { DeletePost } from "./del-post";
+import { AlertDialog } from "@/components/ui/alert-dialog";
 
 interface Types {
   withOption?: boolean;
@@ -35,12 +39,19 @@ export default function PostCard(props: Types) {
                 <Ellipsis />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Edit</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Dialog>
+                      <EditPost />
+                  </Dialog>
+                </DropdownMenuItem>
                 <DropdownMenuItem className="text-red-600">
-                  Delete
+                  <AlertDialog>
+                      <DeletePost />
+                  </AlertDialog>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
           </div>
         ) : (
           <></>
