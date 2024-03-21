@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function LoginDropdown() {
-  const { changeToken } = useToken();
+  const { changeToken, user } = useToken();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -31,7 +31,7 @@ export default function LoginDropdown() {
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40 p-2" align="end">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>@{user?.username}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <Link to="/profile">
           <DropdownMenuItem>

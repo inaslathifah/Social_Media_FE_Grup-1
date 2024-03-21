@@ -20,14 +20,20 @@ import { EditPost } from "./edit-post";
 import { DeletePost } from "./del-post";
 import { AlertDialog } from "@/components/ui/alert-dialog";
 
+import dayjs from "dayjs";
+
 interface Types {
+  username: string;
+  caption: string;
+  time: string;
   withOption?: boolean;
   imgUrl?: string;
   withInputComment?: boolean;
 }
 
 export default function PostCard(props: Types) {
-  const { withOption, imgUrl, withInputComment } = props;
+  const { username, caption, time, withOption, imgUrl, withInputComment } =
+    props;
 
   return (
     <Card className="w-full p-2 text-sm rounded-xl bg-white border border-sky-300 shadow-md shadow-slate-300 mb-5">
@@ -41,17 +47,16 @@ export default function PostCard(props: Types) {
               <DropdownMenuContent>
                 <DropdownMenuItem>
                   <Dialog>
-                      <EditPost />
+                    <EditPost />
                   </Dialog>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="text-red-600">
                   <AlertDialog>
-                      <DeletePost />
+                    <DeletePost />
                   </AlertDialog>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
           </div>
         ) : (
           <></>
@@ -66,19 +71,16 @@ export default function PostCard(props: Types) {
         )}
 
         <div className="w-full">
-          <p className="text-lg font-medium">@john_doe</p>
+          <p className="text-lg font-medium">@{username}</p>
         </div>
         <div className="w-full mb-2">
           <p className="text-[0.7rem] font-ligh text-slate-500 tracking-wide">
-            20:20 - 15 March 2024
+            {dayjs(time).format("HH:MM - DD MMMM YYYY")}
           </p>
         </div>
         <div className="w-full mb-2">
           <p className="text-base tracking-wide text-slate-800 leading-5 text-start">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis atque quo delectus placeat maiores culpa aspernatur
-            unde mollitia assumenda, ipsam voluptatum voluptas neque numquam
-            explicabo, consequatur ad possimus accusantium dolore!
+            {caption}
           </p>
         </div>
         <div className="w-full mb-2">
