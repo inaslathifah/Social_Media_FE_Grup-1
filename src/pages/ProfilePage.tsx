@@ -6,7 +6,7 @@ import { BioProfile } from "@/components/bio-profile";
 
 function ProfilePage() {
   return (
-    <Layout withUser bgBlue centerX>
+    <Layout withUser navBlue centerX>
       <BioProfile />
       <CreatePost />
       <PostCard imgUrl={amperaImage} withOption />

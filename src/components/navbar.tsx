@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import LoginDropdown from "./login-dropdown";
@@ -17,7 +16,7 @@ export default function Navbar(props: Props) {
   return (
     <nav
       className={cn(
-        "w-full flex justify-center sticky top-0",
+        "w-full flex justify-center sticky top-0 z-10",
         navBlue && "bg-sky-700 text-white"
       )}
     >

@@ -1,33 +1,26 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Separator } from "./ui/separator";
 
-export function BioProfile () {
-    return (
-            <div className = "flex space-x-4">
-                
-                    <div className="bg-white">
-                        <Avatar
-                            style={{ width: "100px", height: "100px", borderRadius: "50px", overflow: "hidden" }}
-                            className="border-1 border-white"
-                        >
-                            <AvatarImage src="https://github.com/shadcn.png" className="border-full"/>
-                            <AvatarFallback>JD</AvatarFallback>
-                        </Avatar>
-                    </div>
-                    <div className="flex-1">
-                        <div className="h-full">
-                        <h4 className="text-sm font-medium leading-none">
-                            John Doe
-                        </h4>
-                        <p className="text-sm text-muted-foreground">
-                            Ini bio John Doe 
-                        </p>
-                        <div className="flex h-5 items-center space-x-4 text-sm">
-                            <div>10 Post</div>
-                        </div>
-                        </div>
-                    </div>
-            <Separator className="my-4"/>
-        </div>
-    );
+export function BioProfile() {
+  return (
+    <div className="w-full flex justify-between items-center gap-6 mb-10">
+      <div className="w-1/3">
+        <Avatar className="w-full h-full">
+          <AvatarImage
+            src="https://github.com/shadcn.png"
+            className="border-full"
+          />
+          <AvatarFallback>JD</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="w-full ">
+        <p className="text-lg font-medium">John Doe</p>
+        <p className="text-sm text-muted-foreground my-1">
+          Ini bio John Doe Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Assumenda minus mollitia omnis placeat officia nihil soluta
+          ipsum pariatur nesciunt eveniet.
+        </p>
+        <p>10 Post</p>
+      </div>
+    </div>
+  );
 }
