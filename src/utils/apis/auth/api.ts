@@ -1,5 +1,5 @@
 import axiosWithConfig from "@/utils/apis/axiosWithConfig";
-import { Response } from "@/utils/types/api";
+import { Response, ResponseData } from "@/utils/types/api";
 import { LoginType, RegisterType } from "./type";
 
 interface LoginPayload {
@@ -16,9 +16,8 @@ interface LoginPayload {
 export const userLogin = async (body: LoginType) => {
   try {
     const response = await axiosWithConfig.post("/login", body);
-    console.log(response);
 
-    return response.data as Response<LoginPayload>;
+    return response.data as ResponseData<LoginPayload>;
   } catch (error: any) {
     throw Error(error.message);
   }
