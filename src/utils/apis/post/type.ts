@@ -5,9 +5,6 @@ const MAX_UPLOAD_SIZE = 1024 * 1024 * MAX_MB;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
 export const createPostSchema = z.object({
-  // id: z.number(),
-  // username: z.string().min(1, { message: "Username is required" }),
-  // created_at: z.date(),
   image: z
     .instanceof(File)
     .refine((file) => file.name !== "", "Share your moment with an image")
