@@ -1,4 +1,4 @@
-import axiosWithConfig from "@/utils/apis/axiosWithConfig";
+import axiosWithConfig from "@/utils/apis/axios-with-config";
 import { Response, ResponseData } from "@/utils/types/api";
 import { LoginType, RegisterType } from "./type";
 

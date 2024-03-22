@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const commentSchema = z.object({
-  post_id: z.string(),
+  post_id: z.number(),
   comment: z.string(),
 });
 

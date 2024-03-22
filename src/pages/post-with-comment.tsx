@@ -32,26 +32,6 @@ export default function PostWithComment() {
       {post && (
         <Card className="w-full p-2 text-sm rounded-xl bg-white border border-sky-300 shadow-md shadow-slate-300 mb-5">
           <CardContent className="p-2 text-xs">
-            {/* <div className="w-full flex justify-end">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <Ellipsis />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>
-                    <Dialog>
-                      <EditPost />
-                    </Dialog>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="text-red-600">
-                    <AlertDialog>
-                      <DeletePost />
-                    </AlertDialog>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div> */}
-
             <div className="w-full my-2">
               <img
                 src={post.image}
@@ -83,16 +63,16 @@ export default function PostWithComment() {
             {post.comments.map((comment, i) => (
               <div key={i} className="w-full bg-slate-100 rounded-md p-4 mb-2">
                 <div className="w-full mb-1">
-                  <p className="text-sm font-medium">@{comment.username}</p>
+                  <p className="text-sm font-medium">@{comment.Username}</p>
                 </div>
                 <div className="w-full mb-1">
                   <p className="text-[0.6rem] font-ligh text-slate-500 tracking-wide">
-                    {dayjs(comment.created_at).format("HH:MM - DD MMMM YYYY")}
+                    {dayjs(comment.CreatedAt).format("HH:MM - DD MMMM YYYY")}
                   </p>
                 </div>
                 <div className="w-full mb-1">
                   <p className="text-sm tracking-wide text-slate-800 leading-5 text-start">
-                    {comment.comment}
+                    {comment.Comment}
                   </p>
                 </div>
               </div>

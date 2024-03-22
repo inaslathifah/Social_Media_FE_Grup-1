@@ -1,5 +1,5 @@
 import { ResponseData, Response, Request } from "@/utils/types/api";
-import axiosWithConfig from "../axiosWithConfig";
+import axiosWithConfig from "../axios-with-config";
 import { IComments, IPost, IPostWithComments, createPostType } from "./type";
 import { checkProperty, valueFormatData } from "@/utils/formatter";
 

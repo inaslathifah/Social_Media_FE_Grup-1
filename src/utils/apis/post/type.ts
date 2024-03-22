@@ -39,7 +39,9 @@ export interface IPostWithComments<C = []> {
 }
 
 export interface IComments {
-  username: string;
-  comment: string;
-  created_at: string;
+  ID: number;
+  CreatedAt: string;
+  Username: string;
+  PostId: number;
+  Comment: string;
 }
