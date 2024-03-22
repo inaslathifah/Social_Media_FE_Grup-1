@@ -9,7 +9,7 @@ import {
 } from "react";
 import { toast } from "sonner";
 
-import axiosWithConfig, { setAxiosConfig } from "../apis/axiosWithConfig";
+import axiosWithConfig, { setAxiosConfig } from "../apis/axios-with-config";
 import { IProfile } from "../apis/user/type";
 import { getProfile } from "../apis/user/api";
 

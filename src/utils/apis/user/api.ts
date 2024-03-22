@@ -1,5 +1,5 @@
 import { ResponseData } from "@/utils/types/api";
-import axiosWithConfig from "../axiosWithConfig";
+import axiosWithConfig from "../axios-with-config";
 import { IProfile } from "./type";
 
 export async function getProfile() {

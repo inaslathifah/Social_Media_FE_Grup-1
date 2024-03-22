@@ -1,6 +1,6 @@
 import { CommentType } from "./type";
 import { Response } from "@/utils/types/api";
-import axiosWithConfig from "../axiosWithConfig";
+import axiosWithConfig from "../axios-with-config";
 
 export async function createComment(data: CommentType) {
   try {

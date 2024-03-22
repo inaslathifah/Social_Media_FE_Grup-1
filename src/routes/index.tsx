@@ -1,10 +1,10 @@
 import Home from "@/pages";
 import Login from "@/pages/auth/login";
 import Register from "@/pages/auth/register";
-import ProfilePage from "@/pages/ProfilePage";
+import ProfilePage from "@/pages/profile-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoutes from "./protected-routes";
-import PostWithComment from "@/pages/postWithComment";
+import PostWithComment from "@/pages/post-with-comment";
 
 const router = createBrowserRouter([
   {

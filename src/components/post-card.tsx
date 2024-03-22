@@ -58,7 +58,7 @@ export default function PostCard(props: Types) {
   const form = useForm<CommentType>({
     resolver: zodResolver(commentSchema),
     defaultValues: {
-      post_id: "",
+      post_id: 0,
       comment: "",
     },
   });
@@ -127,7 +127,11 @@ export default function PostCard(props: Types) {
 
         {withInputComment ? (
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onComment)}>
+            <form
+              onSubmit={form.handleSubmit((data) =>
+                onComment({ ...data, post_id: postID })
+              )}
+            >
               <div className="w-full flex">
                 <CustomFormField control={form.control} name="comment" label="">
                   {(field) => (
