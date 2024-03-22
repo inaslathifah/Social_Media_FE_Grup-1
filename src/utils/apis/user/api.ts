@@ -12,11 +12,6 @@ export async function getProfile() {
   }
 }
 
-export async function updateUser(body: IProfile, userID: number) {
-  try {
-  } catch (error) {}
-}
-
 export async function deleteUser(idUser: string) {
   try {
     const response = await axiosWithConfig.delete(`/users/${idUser}`);
