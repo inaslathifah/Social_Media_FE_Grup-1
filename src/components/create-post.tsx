@@ -29,11 +29,7 @@ export default function CreatePost(props: Props) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onsubmit)}>
           <div>
-            <CustomFormField
-              control={form.control}
-              name="caption"
-              label="Caption"
-            >
+            <CustomFormField control={form.control} name="caption" label="">
               {(field) => (
                 <Textarea
                   {...field}
@@ -45,12 +41,7 @@ export default function CreatePost(props: Props) {
                 />
               )}
             </CustomFormField>
-            {/* <textarea
-              className="w-full min-h-[100px] max-h-[100px] py-1 px-2 border-2 border-sky-500 rounded-md"
-              placeholder="Type your caption here..."
-            /> */}
             <div className="flex justify-between mt-3">
-              {/* <Input type="file" className="w-1/2" /> */}
               <CustomFormField control={form.control} name="image" label="">
                 {(field) => (
                   <Input
