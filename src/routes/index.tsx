@@ -4,6 +4,7 @@ import Register from "@/pages/auth/register";
 import ProfilePage from "@/pages/ProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoutes from "./protected-routes";
+import PostWithComment from "@/pages/postWithComment";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/profile", element: <ProfilePage /> },
+      { path: "/post/:postID", element: <PostWithComment /> },
     ],
   },
 ]);

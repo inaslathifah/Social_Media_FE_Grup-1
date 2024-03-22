@@ -23,94 +23,129 @@ import { AlertDialog } from "@/components/ui/alert-dialog";
 import dayjs from "dayjs";
 
 interface Types {
+  postID: number;
   username: string;
   caption: string;
   time: string;
-  withOption?: boolean;
   imgUrl?: string;
+  withOption?: boolean;
   withInputComment?: boolean;
 }
 
 export default function PostCard(props: Types) {
-  const { username, caption, time, withOption, imgUrl, withInputComment } =
-    props;
+  const {
+    username,
+    caption,
+    time,
+    withOption,
+    imgUrl,
+    withInputComment,
+    postID,
+  } = props;
 
   return (
     <Card className="w-full p-2 text-sm rounded-xl bg-white border border-sky-300 shadow-md shadow-slate-300 mb-5">
-      <CardContent className="p-2 text-xs">
-        {withOption ? (
-          <div className="w-full flex justify-end">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Ellipsis />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Dialog>
-                    <EditPost />
-                  </Dialog>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-red-600">
-                  <AlertDialog>
-                    <DeletePost />
-                  </AlertDialog>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        ) : (
-          <></>
-        )}
+      <Link to={`post/${postID}`}>
+        <CardContent className="p-2 text-xs">
+          {withOption ? (
+            <div className="w-full flex justify-end">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Ellipsis />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <Dialog>
+                      <EditPost />
+                    </Dialog>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-red-600">
+                    <AlertDialog>
+                      <DeletePost />
+                    </AlertDialog>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          ) : (
+            <></>
+          )}
 
-        {imgUrl ? (
-          <div className="w-full my-2">
-            <img src={imgUrl} alt="Image" className="rounded-md object-cover" />
-          </div>
-        ) : (
-          <></>
-        )}
+          {imgUrl ? (
+            <div className="w-full my-2">
+              <img
+                src={imgUrl}
+                alt="Image"
+                className="rounded-md object-cover"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
 
-        <div className="w-full">
-          <p className="text-lg font-medium">@{username}</p>
-        </div>
-        <div className="w-full mb-2">
-          <p className="text-[0.7rem] font-ligh text-slate-500 tracking-wide">
-            {dayjs(time).format("HH:MM - DD MMMM YYYY")}
-          </p>
-        </div>
-        <div className="w-full mb-2">
-          <p className="text-base tracking-wide text-slate-800 leading-5 text-start">
-            {caption}
-          </p>
-        </div>
-        <div className="w-full mb-2">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <Link to="/post/">
+          <div className="w-full">
+            <p className="text-lg font-medium">@{username}</p>
+          </div>
+          <div className="w-full mb-2">
+            <p className="text-[0.7rem] font-ligh text-slate-500 tracking-wide">
+              {dayjs(time).format("HH:MM - DD MMMM YYYY")}
+            </p>
+          </div>
+          <div className="w-full mb-2">
+            <p className="text-base tracking-wide text-slate-800 leading-5 text-start">
+              {caption}
+            </p>
+          </div>
+          <div className="w-full mb-2">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
                   <MessageCircle className="w-5 text-sky-700" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Comments</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
-        {withInputComment ? (
-          <div className="w-full flex">
-            <Input
-              className="rounded-full border-slate-400 focus-visible:ring-sky-700 focus-visible:border-white"
-              placeholder="Add a comment"
-            />
-            <Button className="border-none bg-transparent hover:bg-transparent text-black">
-              Send
-            </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Comments</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
-        ) : (
-          <></>
-        )}
-      </CardContent>
+
+          {withInputComment ? (
+            <div className="w-full flex">
+              <Input
+                className="rounded-full border-slate-400 focus-visible:ring-sky-700 focus-visible:border-white"
+                placeholder="Add a comment"
+              />
+              <Button className="border-none bg-transparent hover:bg-transparent text-black">
+                Send
+              </Button>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {/* {comments && comments.length > 0 ? (
+            comments.map((comment, i) => (
+              <div key={i} className="w-full bg-slate-100 rounded-md p-4">
+                <div className="w-full mb-1">
+                  <p className="text-sm font-medium">@{comment.username}</p>
+                </div>
+                <div className="w-full mb-1">
+                  <p className="text-[0.6rem] font-ligh text-slate-500 tracking-wide">
+                    {dayjs(comment.created_at).format("HH:MM - DD MMMM YYYY")}
+                  </p>
+                </div>
+                <div className="w-full mb-1">
+                  <p className="text-sm tracking-wide text-slate-800 leading-5 text-start">
+                    {comment.caption}
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No comments yet</p>
+          )} */}
+        </CardContent>
+      </Link>
     </Card>
   );
 }

@@ -1,12 +1,21 @@
 import Layout from "@/components/layout";
 import PostCard from "@/components/post-card";
-// import amperaImage from "@/assets/amperaori.jpg";
 import CreatePost from "@/components/create-post";
 import { useEffect, useState } from "react";
 
-import { getAllPosts } from "@/utils/apis/post/api";
+import { createPost, getAllPosts } from "@/utils/apis/post/api";
 import { toast } from "sonner";
-import { IPost } from "@/utils/apis/post/type";
+import { IPost, createPostType } from "@/utils/apis/post/type";
+import { Separator } from "@/components/ui/separator";
+
+export async function addPost(data: createPostType) {
+  try {
+    const result = await createPost(data);
+    toast(result.message);
+  } catch (error) {
+    toast((error as Error).message);
+  }
+}
 
 function Home() {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -26,7 +35,10 @@ function Home() {
 
   return (
     <Layout withUser navBlue centerX>
-      <CreatePost />
+      <CreatePost onsubmit={(data) => addPost(data)} />
+
+      <Separator className="mb-7 h-1" />
+
       {posts.map((post) => (
         <PostCard
           key={post.id}
@@ -34,6 +46,8 @@ function Home() {
           caption={post.caption}
           time={post.created_at}
           imgUrl={post.image}
+          postID={post.id}
+          
           withOption
           withInputComment
         />

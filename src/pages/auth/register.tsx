@@ -41,7 +41,6 @@ export default function Register() {
       toast(result.message);
       navigate("/login");
     } catch (error: any) {
-      console.log(error.message);
       toast((error as Error).message.toString());
     }
   }

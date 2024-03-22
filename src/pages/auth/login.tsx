@@ -43,7 +43,6 @@ export default function Login() {
       changeToken(result.data.token);
       navigate("/");
     } catch (error: any) {
-      console.log(error.message);
       toast((error as Error).message.toString());
     }
   }
