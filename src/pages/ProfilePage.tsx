@@ -75,6 +75,7 @@ function ProfilePage() {
         fullname={user?.fullname}
         username={user?.username}
         biodata={user?.biodata}
+        totalPost={posts.length}
       />
 
       <CreatePost onsubmit={(data) => addPost(data)} />
