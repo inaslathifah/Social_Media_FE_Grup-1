@@ -8,3 +8,8 @@ export type Response = {
   code: number;
   message: string;
 };
+
+export interface Request {
+  username?: string;
+  page?: string | number;
+}

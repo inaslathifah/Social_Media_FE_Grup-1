@@ -1,6 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-export function BioProfile() {
+interface Props {
+  fullname?: string;
+  username?: string;
+  biodata?: string;
+}
+
+export function BioProfile(props: Props) {
+  const { fullname, username, biodata } = props;
   return (
     <div className="w-full flex justify-between items-center gap-6 mb-10">
       <div className="w-1/3">
@@ -13,12 +20,9 @@ export function BioProfile() {
         </Avatar>
       </div>
       <div className="w-full ">
-        <p className="text-lg font-medium">John Doe</p>
-        <p className="text-sm text-muted-foreground my-1">
-          Ini bio John Doe Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Assumenda minus mollitia omnis placeat officia nihil soluta
-          ipsum pariatur nesciunt eveniet.
-        </p>
+        <p className="text-lg font-medium">{fullname}</p>
+        <p className="text-lg font-medium">@{username}</p>
+        <p className="text-sm text-muted-foreground my-1">{biodata}</p>
         <p>10 Post</p>
       </div>
     </div>
